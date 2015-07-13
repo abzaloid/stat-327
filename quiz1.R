@@ -1,3 +1,4 @@
+rm(list=ls())
 print(1005 ^ (1/3))
 print(1005/13)
 print(1005 %/% 13)
