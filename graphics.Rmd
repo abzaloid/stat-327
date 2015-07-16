@@ -1,0 +1,88 @@
+---
+title: "Group Work on Graphics"
+output: html_document
+---
+
+* Name: Abzal Serekov; email: serekov@wisc.edu
+* Name: Nursultan Svankulov; email: svankulov@wisc.edu
+
+### Air quality
+Consider the built-in data frame, `airquality`. Make a graph with four panels (two rows and two columns) to show each air quality variable against the day number (from 1 to 153) in the study. Which of the four variables seems to be affected most by the changing seasons? 
+
+```{r}
+a = airquality
+m=matrix(data=1:4, nrow=2, ncol=2, byrow=TRUE)
+layout(m)
+plot(1:dim(a)[1], a$Ozone, ylab="ozone level", xlab="day number", main="Day vs Ozone level")
+plot(1:dim(a)[1], a$Solar.R, ylab="Solar.R level", xlab="day number", main="Day vs Solar.R level")
+plot(1:dim(a)[1], a$Wind, ylab="Wind level", xlab="day number", main="Day vs Wind level")
+plot(1:dim(a)[1], a$Temp, ylab="Temp level", xlab="day number", main="Day vs Temp level")
+```
+
+**Temperature is affected mostly by changing seasons**
+
+
+Make one graph of the temperatures grouped by month. According to your graph, which month was the warmest? Which month had the most uniform temperature?
+
+```{r}
+m=matrix(data=1, nrow=1, ncol=1, byrow=TRUE)
+layout(m)
+plot(a[a$Month==5,]$Day,a[a$Month==5,]$Temp,type="l",col="red")
+par(new=TRUE)
+plot(a[a$Month==6,]$Day,a[a$Month==6,]$Temp,type="l",col="blue")
+par(new=TRUE)
+plot(a[a$Month==7,]$Day,a[a$Month==7,]$Temp,type="l",col="yellow")
+par(new=TRUE)
+plot(a[a$Month==8,]$Day,a[a$Month==8,]$Temp,type="l",col="green")
+par(new=TRUE)
+plot(a[a$Month==9,]$Day,a[a$Month==9,]$Temp,type="l")
+
+```
+
+Does Ozone tend to increase, decrease, or stay the same as Solar.R increases? Does Ozone tend to increase, decrease, or stay the same as Wind increases? Does Ozone tend to increase, decrease, or stay the same as Temp increases? Make one figure to support your answer to all three questions.
+
+```{r}
+```
+
+### Normal approximation to binomial
+The binomial distribution of the number, $x$, of successes in $n$ independent trials, each having probability $p$ of success, is approximated by the normal distribution with mean $\mu=np$ and variance $\sigma^2=np(1-p)$. That is, Bin$(n,p) \approx N(np, np(1-p))$. Make a graph showing the Bin$(n,p)$ probability mass function and the $N(np, np(1-p))$ probability density curve. Choose values of $n$ and $p$ for which the approximation looks good.
+
+```{r}
+```
+
+### $Z$-score vs. $T$-score
+A $Z$-score calculated as $Z=\frac{X-\mu}{\sigma/\sqrt{n}}$ has the normal distribution with mean 0 and standard deviation 1: $Z \sim N(0,1)$.
+A $T$-score calculated as $T = \frac{X-\mu}{s/\sqrt{n}}$ has the Student's $t$ distribution with $n-1$ degrees of freedom: $T \sim t_{n-1}$. The $t_{n-1}$ density curve is shorter with thicker tails than the $N(0, 1)$ density because $s$ varies more than $\sigma$ (a constant). However, the former density approaches the latter as $n$ increases. Make a graph of three probability density curves:
+
+* $N(0,1)$ (a solid line)
+* $t_{6-1}$ (a dotted line)
+* $t_{30-1}$ (a dashed line)
+
+For each curve, make a vertical line (of the same type as the curve's line type) from the $x$-axis to the curve at the point $x$ that cuts off off right-tail area 0.025.
+
+```{r}
+```
+
+### Influence of music on wine purchase
+The file [wine.csv](http://www.stat.wisc.edu/~jgillett/327-1/graphics/wine.csv) contains data on wine purchased from a liquor store. Each row corresponds to a bottle of wine purchased. The first column indicates which type of music was playing in the store during the purchase. The second column indicates which type of wine was purchased. Make a graph that gives evidence about the question of whether type of music and type of wine are independent. Do you think they are independent?
+
+```{r}
+```
+
+### Plants
+Look at the built-in data frame `CO2`. Describe the data set (in English and the kind of language used in an introductory statistics course, not in R language). Mention whether it's from an experiment or an observational study and mention which are independent/explanatory variables and which are dependent/response variables.
+
+Make a graph of uptake vs. concentration, coloring the points according to Plant. The relationship between uptake and concentration is roughly the same for each Plant: describe it.
+
+```{r}
+```
+
+Break the previous graph into two parts, one for Quebec and one for Mississippi. Which Type has greater variability in uptake for a given concentration?
+
+```{r}
+```
+
+Break the first graph into two parts, one for nonchilled and one for chilled. Broadly speaking, what is the effect of chilling on uptake?
+
+```{r}
+```
